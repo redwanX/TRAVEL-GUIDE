@@ -7,6 +7,7 @@ import About from './Pages/About/About';
 import PageNotFound from './Pages/Shared/PageNotFound/PageNotFound';
 import Login from './Pages/Authentication/Login/Login';
 import Register from './Pages/Authentication/Register/Register';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
