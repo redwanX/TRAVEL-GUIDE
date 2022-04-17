@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "name": "HISTORICAL TOUR",
+      "price": "120$",
+      "img": "https://i.pinimg.com/originals/ec/e1/21/ece121de04b1ac38117c2aea1c9b51d0.jpg",
+      "places":["National Monument","Gedung Sate","Uluwatu Temple","Fort Rotterdam"]
+    },
+    {
+        "id": 2,
+        "name": "CITY TOUR",
+        "price": "199$",
+        "img": "https://i.pinimg.com/originals/ec/e1/21/ece121de04b1ac38117c2aea1c9b51d0.jpg",
+        "places":["Taman Ismail Marzuki","Istiqlal Mosque","Merdeka Square","Thousand Island"]
+    },
+    {
+          "id": 3,
+          "name": "NATURAL TOUR",
+          "price": "299$",
+          "img": "https://i.pinimg.com/originals/ec/e1/21/ece121de04b1ac38117c2aea1c9b51d0.jpg",
+          "places":["Seminyak Beach","Komodo Island","Jomblang Cave","Timang Beach"]
+    }
+]

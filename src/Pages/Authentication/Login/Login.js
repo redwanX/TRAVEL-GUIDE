@@ -39,6 +39,7 @@ const Login = () => {
           const email = emailRef.current.value;
           const password = passwordRef.current.value;
           signInWithEmailAndPassword(email,password);
+          
     }
     const handleResetPassword = async ()=>{
       const email = emailRef.current.value;
