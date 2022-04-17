@@ -35,7 +35,7 @@ const SocialAuth = () => {
           <p className='p-0 pt-1 mx-3 fw-bold fs-3 text-secondary'>or</p>
           <div style={{ height: '1px' }} className='bg-secondary w-100'></div>
         </div>
-        <button className='w-100 btn btn-lignt shadow rounded-lg' onClick={()=>signInwithGoogle()}>
+        <button  className='w-100 btn btn-dark shadow rounded-lg mb-5' onClick={()=>signInwithGoogle()}>
           <div className='d-flex align-items-center justify-content-center'>
           <img  style={{ width: '30px' }}src={google} alt="" />
           <span>Sign In/Up Google</span>

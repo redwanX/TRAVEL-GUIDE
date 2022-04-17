@@ -86,11 +86,10 @@ const Login = () => {
           </Form.Group>
         <Button className='rounded-pill mt-3 px-4' type="submit">Login</Button>
       </Form>
-      <div className='d-flex align-items-center justify-content-between'>
-      <p className='fw-bold py-2'>New User? <Link to='/register' className='text-primary pe-auto text-decoration-none'>Register</Link>  </p>
-      <p className='fw-bold'>Forgot Password?<button className='btn btn-link p-0 fw-bold text-primary pe-auto text-decoration-none' onClick={handleResetPassword}>Reset Password</button> </p>
       
-      </div>
+      <p className='fw-bold mt-2 p-0 m-0'>New User? <Link to='/register' className='text-primary pe-auto text-decoration-none ps-2'>Register</Link>  </p>
+      <p className='fw-bold p-0 m-0'>Forgot Password?<button className='btn btn-link p-0 fw-bold text-primary pe-auto  ps-2 text-decoration-none' onClick={handleResetPassword}>Reset Password</button> </p>
+      
       <SocialAuth></SocialAuth>
       <ToastContainer></ToastContainer>
         </div>
