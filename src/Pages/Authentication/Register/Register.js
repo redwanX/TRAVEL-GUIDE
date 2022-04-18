@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { toast } from 'react-toastify';
 import Loading from '../../Shared/Loading/Loading';
 import SocialAuth from '../SocialAuth/SocialAuth';
 
 const Register = () => {
+  const [userAuthenticate,loadingAuthenticate] = useAuthState(auth)
     const [validated, setValidated] = useState(false);
     const emailRef = useRef('');
     const passwordRef = useRef('');
@@ -23,6 +24,12 @@ const Register = () => {
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     
+    useEffect(()=>{
+      if(userAuthenticate){
+        navigate('/',{replace:true});
+      }
+    },[userAuthenticate]);
+
     useEffect(()=>{
       if(error){
         toast(error?.message)
@@ -40,7 +47,7 @@ const Register = () => {
       }
     },[user]);
 
-    if(loading){
+    if(loading||loadingAuthenticate){
       return <Loading></Loading>
     }
 
@@ -77,7 +84,7 @@ const Register = () => {
     };
   
     return (
-      <div className='vh-100 pt-5 col col-lg-6 col-12 mx-auto container'>   
+      <div style={{minHeight: 'calc(100vh - 142px - 72px)'}} className='pt-5 col col-lg-6 col-12 mx-auto container'>   
         <h1 className='text-secondary fw-bolder'>REGISTER</h1>
         <hr />
         <Form noValidate validated={validated} onSubmit={handleSubmit}>

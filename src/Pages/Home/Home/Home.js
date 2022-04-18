@@ -4,7 +4,7 @@ import Services from '../Services/Services'
 import Reviews from '../Reviews/Reviews'
 const Home = () => {
   return (
-    <div>
+    <div style={{minHeight: 'calc(100vh - 142px - 72px)'}}>
       <Banner></Banner>
       <Services></Services>
       <Reviews></Reviews>

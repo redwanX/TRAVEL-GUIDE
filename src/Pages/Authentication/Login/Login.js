@@ -1,13 +1,14 @@
+import { sendPasswordResetEmail } from 'firebase/auth';
 import React, { useEffect, useRef, useState } from 'react'
 import { Button,Form } from 'react-bootstrap';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
 import SocialAuth from '../SocialAuth/SocialAuth';
 const Login = () => {
-  
+  const [userAuthenticate,loadingAuthenticate] = useAuthState(auth)
     const [validated, setValidated] = useState(false);
     const emailRef = useRef('');
     const passwordRef = useRef('');
@@ -19,25 +20,28 @@ const Login = () => {
       loading,
       error,
     ] = useSignInWithEmailAndPassword(auth);
-    const [sendPasswordResetEmail, , sending, resetError] = useSendPasswordResetEmail(auth);
+   
     let from = location.state?.from?.pathname || "/";
+    useEffect(()=>{
+      if(userAuthenticate){
+        navigate(from,{replace:true});
+      }
+    },[userAuthenticate]);
+
     useEffect(()=>{
       if(error){
         toast(error?.message)
       }
     },[error]);
-    useEffect(()=>{
-      if(resetError){
-        toast(resetError?.message)
-      }
-    },[resetError]);
+
+
     useEffect(()=>{
       if(user){
         navigate(from,{replace:true});
       }
     },[user]);
 
-    if(loading){
+    if(loading||loadingAuthenticate){
       return <Loading></Loading>
     }
     const handleLogin = ()=>{
@@ -50,8 +54,16 @@ const Login = () => {
       const email = emailRef.current.value;
       const validateEmail = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email);
       if(email && validateEmail){
-        await sendPasswordResetEmail(email);
-        toast('Email Sent');
+        sendPasswordResetEmail(auth, email)
+        .then(() => {
+          toast("Reset Link Sent To email")
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          toast(errorMessage)
+        });
+
       }
       else{
           toast('please Enter Your Valid Email Address');
@@ -72,7 +84,7 @@ const Login = () => {
     };
   
     return (
-      <div className=' vh-100 pt-5 col col-lg-6 col-12 mx-auto container'>   
+      <div style={{minHeight: 'calc(100vh - 142px - 72px)'}} className=' pt-5 col col-lg-6 col-12 mx-auto container'>   
         <h1 className='text-secondary fw-bolder'>LOGIN</h1>
         <hr />
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
