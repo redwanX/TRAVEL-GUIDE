@@ -6,23 +6,29 @@ import Loading from '../../Shared/Loading/Loading';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 const SocialAuth = () => {
-  
+  //Hooks
   const navigate = useNavigate();
   const location =useLocation();
   const [signInwithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
   let from = location.state?.from?.pathname || "/";
-    useEffect(()=>{
+    
+  //Error Handling
+  useEffect(()=>{
       if(error){
         toast(error?.message)
       }
     },[error]);
-    useEffect(()=>{
+
+  //If user wasnt login then take back to place form where it came (checkout)
+  useEffect(()=>{
       if(user){
         navigate(from,{replace:true});
       }
     },[user]);
-    if(loading){
+
+  //Loding
+  if(loading){
       <Loading></Loading>
     }
  

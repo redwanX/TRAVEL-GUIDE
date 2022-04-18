@@ -5,15 +5,20 @@ import { toast } from "react-toastify";
 import useServices from "../../Hooks/useServices";
 
 const Checkout = () => {
+  //Custom Hooks for geting services
   const [services, setServices] = useServices();
   const [service, setService] = useState({});
   const { id } = useParams();
+
+  //Finding targeted service form services
   useEffect(() => {
     const selected = services.find((s) => s.id === parseInt(id));
     setService(selected);
   }, [services]);
   const { name, price, img, places, duration, desc } = service ? service : {};
   const navigate = useNavigate();
+
+  //Show thanks toast after submiting form
   const showthanks = (e) => {
     e.preventDefault();
     toast("Thanks For Booking");

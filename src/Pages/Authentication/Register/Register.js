@@ -8,6 +8,7 @@ import Loading from '../../Shared/Loading/Loading';
 import SocialAuth from '../SocialAuth/SocialAuth';
 
 const Register = () => {
+  //Hooks
   const [userAuthenticate,loadingAuthenticate] = useAuthState(auth)
     const [validated, setValidated] = useState(false);
     const emailRef = useRef('');
@@ -24,19 +25,21 @@ const Register = () => {
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     
+    //Redirect To home If already Logged in and user is trying to access registration page with url
     useEffect(()=>{
       if(userAuthenticate){
         navigate('/',{replace:true});
       }
     },[userAuthenticate]);
 
+    //Checking For Error
     useEffect(()=>{
       if(error){
         toast(error?.message)
       }
     },[error]);
     
-
+    //Toast for verification email 
     useEffect(()=>{
       if(user){
         if(!emailError){
@@ -47,16 +50,13 @@ const Register = () => {
       }
     },[user]);
 
+    //Loading Page
     if(loading||loadingAuthenticate){
       return <Loading></Loading>
     }
 
     
-
-
-    
-    
-
+    // Calling Registration Hook With Email
     const handleRegister = async()=>{
       const name = nameRef.current.value;
       const email = emailRef.current.value;
@@ -64,12 +64,9 @@ const Register = () => {
       await createUserWithEmailAndPassword(email, password);
       await updateProfile({ displayName: name });
       await sendEmailVerification(email)
-
-      
-      
-      
     }
 
+    //Checking If all input field is valid
     const handleSubmit = (event) => {
       event.preventDefault();
       const form = event.currentTarget;

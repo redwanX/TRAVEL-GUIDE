@@ -8,6 +8,7 @@ import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
 import SocialAuth from '../SocialAuth/SocialAuth';
 const Login = () => {
+  //Hooks
   const [userAuthenticate,loadingAuthenticate] = useAuthState(auth)
     const [validated, setValidated] = useState(false);
     const emailRef = useRef('');
@@ -22,34 +23,41 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
    
     let from = location.state?.from?.pathname || "/";
+    
+    //Redirect To home If already Logged in and user is trying to access login page with url
     useEffect(()=>{
       if(userAuthenticate){
         navigate(from,{replace:true});
       }
     },[userAuthenticate]);
 
+    //Error Checking And Showing on toast
     useEffect(()=>{
       if(error){
         toast(error?.message)
       }
     },[error]);
 
-
+    //If user login it take user back to place form where it came (Checkout)
     useEffect(()=>{
       if(user){
         navigate(from,{replace:true});
       }
     },[user]);
 
+    //Loading
     if(loading||loadingAuthenticate){
       return <Loading></Loading>
     }
+
+    //Handle Signin with email
     const handleLogin = ()=>{
           const email = emailRef.current.value;
           const password = passwordRef.current.value;
           signInWithEmailAndPassword(email,password);
           
     }
+    //send reset password 
     const handleResetPassword = async ()=>{
       const email = emailRef.current.value;
       const validateEmail = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email);
@@ -69,7 +77,7 @@ const Login = () => {
           toast('please Enter Your Valid Email Address');
       }
     }
-
+    //validate input field
     const handleSubmit = (event) => {
       event.preventDefault();
       const form = event.currentTarget;
