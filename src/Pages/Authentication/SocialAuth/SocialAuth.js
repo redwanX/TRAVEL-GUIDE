@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react'
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import google from '../../../Images/icons/google.png'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import Loading from '../../Shared/Loading/Loading';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 const SocialAuth = () => {
   
   const navigate = useNavigate();
-
+  const location =useLocation();
   const [signInwithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
-
+  let from = location.state?.from?.pathname || "/";
     useEffect(()=>{
       if(error){
         toast(error?.message)
@@ -19,7 +19,7 @@ const SocialAuth = () => {
     },[error]);
     useEffect(()=>{
       if(user){
-        navigate('/');
+        navigate(from,{replace:true});
       }
     },[user]);
     if(loading){
@@ -38,7 +38,7 @@ const SocialAuth = () => {
         <button  className='w-100 btn btn-dark shadow rounded-lg mb-5' onClick={()=>signInwithGoogle()}>
           <div className='d-flex align-items-center justify-content-center'>
           <img  style={{ width: '30px' }}src={google} alt="" />
-          <span>Sign In/Up Google</span>
+          <span>Sign In/Up With Google</span>
           </div>
         </button>
 

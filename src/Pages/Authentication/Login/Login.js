@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Button,Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
 import SocialAuth from '../SocialAuth/SocialAuth';
@@ -19,13 +19,18 @@ const Login = () => {
       loading,
       error,
     ] = useSignInWithEmailAndPassword(auth);
-    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+    const [sendPasswordResetEmail, , sending, resetError] = useSendPasswordResetEmail(auth);
     let from = location.state?.from?.pathname || "/";
     useEffect(()=>{
       if(error){
         toast(error?.message)
       }
     },[error]);
+    useEffect(()=>{
+      if(resetError){
+        toast(resetError?.message)
+      }
+    },[resetError]);
     useEffect(()=>{
       if(user){
         navigate(from,{replace:true});
@@ -62,11 +67,12 @@ const Login = () => {
       setValidated(true);
       if(form.checkValidity()===true){
           handleLogin();
+          setValidated(false);
       }
     };
   
     return (
-      <div className='pt-5 col col-lg-6 col-12 mx-auto container'>   
+      <div className=' vh-100 pt-5 col col-lg-6 col-12 mx-auto container'>   
         <h1 className='text-secondary fw-bolder'>LOGIN</h1>
         <hr />
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
@@ -91,7 +97,6 @@ const Login = () => {
       <p className='fw-bold p-0 m-0'>Forgot Password?<button className='btn btn-link p-0 fw-bold text-primary pe-auto  ps-2 text-decoration-none' onClick={handleResetPassword}>Reset Password</button> </p>
       
       <SocialAuth></SocialAuth>
-      <ToastContainer></ToastContainer>
         </div>
     )
  

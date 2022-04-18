@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import Loading from '../../Shared/Loading/Loading';
 import SocialAuth from '../SocialAuth/SocialAuth';
 
@@ -18,7 +18,9 @@ const Register = () => {
       user,
       loading,
       error,
-    ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification: true});
+    ] = useCreateUserWithEmailAndPassword(auth);
+    const [sendEmailVerification, sending, emailError] = useSendEmailVerification(auth);
+
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     
     useEffect(()=>{
@@ -26,9 +28,15 @@ const Register = () => {
         toast(error?.message)
       }
     },[error]);
+    
+
     useEffect(()=>{
       if(user){
+        if(!emailError){
+          toast('Verification Email Sent, Please Check Your Email For Confirmation Link')
+        }
         navigate('/');
+
       }
     },[user]);
 
@@ -48,6 +56,9 @@ const Register = () => {
       const password = passwordRef.current.value;
       await createUserWithEmailAndPassword(email, password);
       await updateProfile({ displayName: name });
+      await sendEmailVerification(email)
+
+      
       
       
     }
@@ -60,15 +71,13 @@ const Register = () => {
       }
       setValidated(true);
       if(form.checkValidity()===true){
-        handleRegister();
-        nameRef.current.value=''
-        emailRef.current.value=''
-        passwordRef.current.value=''
+        handleRegister(); 
+        setValidated(false);
       }
     };
   
     return (
-      <div className='pt-5 col col-lg-6 col-12 mx-auto container'>   
+      <div className='vh-100 pt-5 col col-lg-6 col-12 mx-auto container'>   
         <h1 className='text-secondary fw-bolder'>REGISTER</h1>
         <hr />
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
@@ -96,7 +105,6 @@ const Register = () => {
           </Form.Group>
         <Button className='rounded-pill mt-3 px-4' type="submit">Register</Button>
       </Form>
-      <ToastContainer></ToastContainer>
       <p className='fw-bold py-2'>Already Registered? <Link to='/login' className='text-primary pe-auto text-decoration-none'>Login</Link>  </p>
       <SocialAuth></SocialAuth>
         </div>

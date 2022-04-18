@@ -3,21 +3,29 @@
       "id": 1,
       "name": "HISTORICAL TOUR",
       "price": "120$",
-      "img": "https://i.pinimg.com/originals/ec/e1/21/ece121de04b1ac38117c2aea1c9b51d0.jpg",
-      "places":["National Monument","Gedung Sate","Uluwatu Temple","Fort Rotterdam"]
+      "img": "https://i.ibb.co/gPKppB4/2.jpg",
+      "places":["National Monument","Gedung Sate","Uluwatu Temple","Fort Rotterdam"],
+      "duration":"1-2",
+      "desc":"This Package is for Historical places of Indonesia, I will provide all kind of historical knowledge of each places."
     },
     {
         "id": 2,
-        "name": "CITY TOUR",
-        "price": "199$",
-        "img": "https://i.pinimg.com/originals/ec/e1/21/ece121de04b1ac38117c2aea1c9b51d0.jpg",
-        "places":["Taman Ismail Marzuki","Istiqlal Mosque","Merdeka Square","Thousand Island"]
+        "name": "MOUNTAIN TOUR",
+        "price": "599$",
+        "img": "https://i.ibb.co/kJxmnd6/3.jpg",
+        "places":["Ijen Crater","Mount Bromo","Mount Rinjani","Mount Kelimutu"],
+        "duration":"5-6",
+        "desc":"Do you love hiking and want to see world from higher level? then this package is perfect for you."
+        
     },
     {
           "id": 3,
-          "name": "NATURAL TOUR",
-          "price": "299$",
-          "img": "https://i.pinimg.com/originals/ec/e1/21/ece121de04b1ac38117c2aea1c9b51d0.jpg",
-          "places":["Seminyak Beach","Komodo Island","Jomblang Cave","Timang Beach"]
+          "name": "BEACH TOUR",
+          "price": "499$",
+          "img": "https://i.ibb.co/n1r99xr/1.jpg",
+          "places":["Sanur Beach","Komodo Island","Kuta Beach","Pandawa Beach"],
+          "duration":"2-3",
+          "desc":"Enjoy a delightful sunset and explore what's like to swim among bioluminescence the wonderful nature that reveals at night. "
+          
     }
 ]

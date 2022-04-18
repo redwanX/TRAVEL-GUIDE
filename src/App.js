@@ -12,6 +12,7 @@ import Footer from './Pages/Shared/Footer/Footer';
 import 'react-toastify/dist/ReactToastify.css';
 import Checkout from './Pages/Checkout/Checkout';
 import RequireAuth from './Pages/Authentication/RequireAuth/RequireAuth';
+import { ToastContainer } from 'react-toastify';
 function App() {
   return (
     <div>
@@ -25,6 +26,8 @@ function App() {
         <Route path='/checkout/:id' element={<RequireAuth><Checkout></Checkout></RequireAuth>}></Route>
         <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
       </Routes>
+      
+      <ToastContainer></ToastContainer>
       <Footer></Footer>
     </div>
   );

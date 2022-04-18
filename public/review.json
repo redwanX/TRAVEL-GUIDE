@@ -1,0 +1,20 @@
+[
+    {
+      "id": 1,
+      "name": "Leanne Graham",
+      "review": "Alex is a great guy. And I must say he has some good knowladge about history of Indonesia. I will be with him again for sure!",
+      "img": "https://raw.githubusercontent.com/redwanX/utilities/main/people/7.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Ervin Howell",
+      "review": "Last Month I visited Indonesia for a trip, and I found Alex. Thanks for every effort you gave.10/10 would recommend!",
+      "img": "https://raw.githubusercontent.com/redwanX/utilities/main/people/8.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Deckow Crist",
+      "review": "I will recomended him as a tour guide not only because he knows his country very well also for his friendly behiviour!",
+      "img": "https://raw.githubusercontent.com/redwanX/utilities/main/people/9.jpg"
+    }
+]

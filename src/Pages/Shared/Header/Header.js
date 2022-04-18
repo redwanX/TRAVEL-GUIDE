@@ -13,15 +13,20 @@ const Header = () => {
   return (
     <Navbar className='py-3 fw-bold shadow' sticky='top' collapseOnSelect expand="lg" bg="light" variant="light">
   <Container>
-  <Navbar.Brand as = {Link} to='/'>ALEX - TRAVEL GUIDE</Navbar.Brand>
+  <Navbar.Brand as = {Link} to='/' className='text-primary'>ALEX - TRAVEL GUIDE</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav className='ms-auto'>
+    <Nav className="me-auto">
+    <Nav.Link href='/#services'>Services</Nav.Link>
+    </Nav>
+    <Nav>
+      
+      <Nav.Link as={Link}  to='/'>Home</Nav.Link>
       <Nav.Link as={Link} to='about'>About</Nav.Link>
       <Nav.Link as={Link} to='blog'>Blog</Nav.Link>
       {
         user?
-        <Nav.Link onClick={handleSignOut}>Log Out</Nav.Link>
+        <Nav.Link className='btn btn-dark text-light' onClick={handleSignOut}>Log Out</Nav.Link>
           : 
         <Nav.Link as={Link} to='login'>Login</Nav.Link>
       }
