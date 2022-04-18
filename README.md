@@ -1,7 +1,7 @@
 # ALEX - TRAVEL GUIDE
 
 ## Website Name: ALEX - TRAVEL GUIDE
-# Live Site Link: [ALEX - TRAVEL GUIDE](https://travel-guide-dfd47.web.app/) : https://travel-guide-dfd47.web.app/.
+### Live Site Link: [ALEX - TRAVEL GUIDE](https://travel-guide-dfd47.web.app/) : https://travel-guide-dfd47.web.app/.
 
 
 ## features and functionality
