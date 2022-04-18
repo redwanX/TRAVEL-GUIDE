@@ -7,7 +7,7 @@ const Service = (props) => {
     <div className="col">
       <Card
         style={{ borderRadius: "15px" }}
-        className="col-12 col-lg-11 shadow h-100"
+        className="col-12 col-lg-12 shadow h-100"
       >
         <Card.Img
           variant="top"
@@ -44,7 +44,7 @@ const Service = (props) => {
             </ul>
           </div>
           <Card.Title className="text-secondary fw-bold">
-            MY CHARGE:<span className="text-primary ps-2">{price}</span>
+            PRICE:<span className="text-primary ps-2">{price}</span>
           </Card.Title>
           <Button
             as={Link}
