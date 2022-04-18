@@ -4,13 +4,6 @@ import Service from '../Service/Service';
 
 const Services = () => {
     const [services,setServices]=useServices();
-    useEffect(()=>{
-        fetch('services.json')
-        .then(res => res.json())
-        .then (data => setServices(data));
-    },
-    []);
-
   return (
     
     <div id='services' className='container mb-5 h-100'>
