@@ -2,7 +2,7 @@ import React from 'react'
 
 const Blog = () => {
   return (
-    <div className='pt-5 container' style={{textAlign:'justify'}}>
+    <div className='pt-5 mb-5 container' style={{textAlign:'justify'}}>
       <h1 className='text-center fw-bolder text-primary'>BLOG</h1>
       <hr />
       <div className=' text-secondary p-5 w-100 shadow rounded border'>
