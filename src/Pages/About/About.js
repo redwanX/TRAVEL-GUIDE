@@ -8,11 +8,12 @@ const About = () => {
       <h1 className='text-primary mt-4 fw-bolder'>MD. REDWAN AHMED</h1>
       </div>
       <hr className='w-50 mx-auto' />
-      <div className='p-5 shadow rounded-lg' style={{textAlign:'justify'}}>
-      <h3 className='text-primary'>MY GOAL AND HOW WILL I WORK TO ACHIEVE IT:</h3>
-      <article className='fw-bold pt-5 '>
-          My Goal is to be a full stack web developer . I'm focusing on MERN stack and at this moment I'm Learning React Js. I will start Learning Backend Development with Node Js, Express Js and Mongo DB after completing React Js. I Like to write code effeciently which helps me to learn coding things deeply.
-      </article>
+      <div className='p-5 shadow rounded-lg' >
+      <h3 className='text-primary'></h3>
+      <div className=' text-secondary p-5 w-100 shadow rounded border'>
+            <h2 className='fw-bold'>MY GOAL AND HOW WILL I WORK TO ACHIEVE IT:</h2>
+            <i style={{textAlign:"justify"}} className=' fw-bold text-secondary'> My Goal is to be a full stack web developer . I'm focusing on MERN stack and at this moment I'm Learning React Js. I will start Learning Backend Development with Node Js, Express Js and Mongo DB after completing React Js. I Like to write code effeciently which helps me to learn coding things deeply</i>
+      </div>
       </div>
     </div>
   )
