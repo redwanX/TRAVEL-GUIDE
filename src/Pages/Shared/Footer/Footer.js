@@ -4,8 +4,8 @@ const Footer = () => {
   return (
     <div>
         <div className='footer bg-dark text-light'>
-           <h3>ALEX - TRAVEL GUIDE</h3> 
-            <p className='text-secondary'> ©{new Date().getFullYear()} ALEX. All rights reserved.</p>
+           <h4>ALEX - TRAVEL GUIDE</h4> 
+            <p className='text-xs text-secondary'> ©{new Date().getFullYear()} All rights reserved.</p>
             
         </div>
     </div>
