@@ -11,7 +11,7 @@ const About = () => {
       <div className='p-5 shadow rounded-lg' style={{textAlign:'justify'}}>
       <h3 className='text-primary'>MY GOAL AND HOW WILL I WORK TO ACHIEVE IT:</h3>
       <article className='fw-bold pt-5 '>
-          My Goal is to be a full stack web developer . I'm focusing on MERN stack. At this moment I'm Learning React Js. I will start Learning Backend Development with Node Js, Express Js and Mongo DB after completing React Js.
+          My Goal is to be a full stack web developer . I'm focusing on MERN stack and at this moment I'm Learning React Js. I will start Learning Backend Development with Node Js, Express Js and Mongo DB after completing React Js. I Like to write code effeciently which helps me to learn coding things deeply.
       </article>
       </div>
     </div>

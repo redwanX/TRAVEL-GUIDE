@@ -7,13 +7,13 @@ const Review = (props) => {
             <div style={{ borderRadius: "15px" }} className=' p-5 border h-100 w-100 bg-light shadow d-flex flex-column align-items-center '>
                 
                 <img src={img} style={{height:"100px",width:"100px"}} className='rounded-circle' alt="" />
-                <span className='fw-bold text-primary pt-2'>{name}</span>
+                <span className='fw-bold text-dark pt-2'>{name}</span>
                 <hr className='mb-0 w-50' /> 
                 
-                <div style={{ borderRadius: "15px" }} className='m-0 p-0 text-dark w-100'>
+                <div style={{ borderRadius: "15px" }} className='m-0 p-0 text-primary w-100'>
                     <div className='d-flex justify-content-center'>
                     <StarIcon className='m-0 p-0' style={{height:"30px"}}/>
-                    <h3 className='my-0 py-0 text-center'>{rating}</h3>    
+                    <h3 className='my-0 py-0 text-center fw-bold'>{rating}</h3>    
                     </div>
                 </div>
                 <hr className='w-50 mt-0' />
