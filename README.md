@@ -5,11 +5,11 @@
 
 
 ## features and functionality
-- This Website Contain Services Section in Home page which is provided by Alex and also has an review section
-- Each Service Contain A Book now Button Which take us to Checkout if user is Authenticated and We can Check Out By Filling a Form.
-- This website hav Authentication system Means User can do Login,SignUp and other releted works Like Log out,Reset password,Email Verification.
-- It also have Blog  Section Which Contain 3 Ques and Answer Given as task
-- It also contain About Page , Where I put My information Like Image,Name,Goal
+- HOME PAGE CONTAIN VARIOUS RELEVENT SECTIONS  
+- REVIEWS OF USERS ARE SHOWN
+- DIFFERENCE TOUR PACKAGES ARE SHOWN
+- USER CAN BOOK A PACKAGE 
+- AUTHENTICATION WITH FIREBASE (LOGIN/SIGNUP WITH EMAIL OR GOOGLE)
 
 ## Technologies Used
 
